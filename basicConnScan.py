@@ -18,12 +18,12 @@ def connectionScan(targetHost, targetPort, outFileOpen, outFileClosed):
 		print "\n[+]Recieved data - %s" % str(banner)
 		print >> outFileOpen, "\n[+]TCP port %d open" % targetPort
 		print >> outFileOpen, "\n[+]Recieved data - %s" % str(banner)
-		++openCount
+		openCount += 1
 		s.close()
 	except:
 		wait.acquire()
 		print >> outFileClosed, "\n[-]TCP port %d closed" % targetPort
-		++closedCount
+		closedCount += 1
 		pass
 	finally:
 		wait.release()
